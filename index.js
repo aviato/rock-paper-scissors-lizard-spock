@@ -1,6 +1,7 @@
 var React    = require('react');
 var ReactDOM = require('react-dom');
-
+require('./custom-styles.css');
+require('bootstrap/dist/css/bootstrap.min.css');
 
 var Choice = React.createClass({
   render: function () {
