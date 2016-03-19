@@ -29,14 +29,21 @@ var UserSelection = React.createClass({
 var Results = React.createClass({
   render: function () {
     return (
-      <h2>{this.props.result}</h2>
+      <div>
+        <h2>{this.props.gameInfo.userChoice} v.s. {this.props.gameInfo.compChoice}!</h2>
+        <h2>{this.props.gameInfo.result}</h2>
+      </div>
     );
   }
 });
 
 var App = React.createClass({
   getInitialState: function () {
-    return {result: 'Press a button to begin playing.'};
+    return {
+      result: 'Press a button to begin playing.',
+      userChoice: null,
+      compChoice: null
+    };
   },
   playGame: function (userChoice) {
     var choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
@@ -45,13 +52,13 @@ var App = React.createClass({
     if (userChoice === 'Rock') {
 
       if (compChoice === 'Scissors') {
-        this.setState({result: 'Rock crushes Scissors! You win!' });
+        this.setState({result: 'Rock crushes Scissors! You win!', userChoice: 'Rock', compChoice: compChoice });
       } else if (compChoice === 'Lizard') {
-        this.setState({result: 'Rock crushes Lizard! You win!' });
+        this.setState({result: 'Rock crushes Lizard! You win!', userChoice: 'Rock', compChoice: compChoice});
       } else if (compChoice === 'Paper') {
-        this.setState({result: 'Paper covers Rock! You lose!' });
+        this.setState({result: 'Paper covers Rock! You lose!', userChoice: 'Rock', compChoice: compChoice });
       } else if (compChoice === 'Spock') {
-        this.setState({result: 'Spock vaporizes Rock! You lose!' });
+        this.setState({result: 'Spock vaporizes Rock! You lose!', userChoice: 'Rock', compChoice: compChoice });
       } else {
         this.setState({result: 'Tie game!' });
       }
@@ -59,13 +66,13 @@ var App = React.createClass({
     } else if (userChoice === 'Paper') {
 
       if (compChoice === 'Rock') {
-        this.setState({result: 'Paper covers rock! You win!' });
+        this.setState({result: 'Paper covers rock! You win!', userChoice: 'Paper', compChoice: compChoice });
       } else if (compChoice === 'Spock') {
-        this.setState({result: 'Paper disproves Spock! You win!' });
+        this.setState({result: 'Paper disproves Spock! You win!', userChoice: 'Paper', compChoice: compChoice });
       } else if (compChoice === 'Scissors') {
-        this.setState({result: 'Scissors cuts paper! You lose!' });
+        this.setState({result: 'Scissors cuts paper! You lose!', userChoice: 'Paper', compChoice: compChoice });
       } else if (compChoice === 'Lizard') {
-        this.setState({result: 'Lizard eats paper! You lose!' });
+        this.setState({result: 'Lizard eats paper! You lose!', userChoice: 'Paper', compChoice: compChoice });
       } else {
         this.setState({result: 'Tie game!' });
       }
@@ -73,13 +80,13 @@ var App = React.createClass({
     } else if (userChoice === 'Scissors') {
 
       if (compChoice === 'Paper') {
-        this.setState({result: 'Scissors cuts paper! You win!' });
+        this.setState({result: 'Scissors cuts paper! You win!', userChoice: 'Scissors', compChoice: compChoice });
       } else if (compChoice === 'Lizard') {
-        this.setState({result: 'Scissors decapitates lizard! You win!' });
+        this.setState({result: 'Scissors decapitates lizard! You win!', userChoice: 'Scissors', compChoice: compChoice });
       } else if (compChoice === 'Rock') {
-        this.setState({result: 'Rock crushes scissors! You lose!' });
+        this.setState({result: 'Rock crushes scissors! You lose!', userChoice: 'Scissors', compChoice: compChoice });
       } else if (compChoice === 'Spock') {
-        this.setState({result: 'Spock crushes scissors! You lose!' });
+        this.setState({result: 'Spock crushes scissors! You lose!', userChoice: 'Scissors', compChoice: compChoice });
       } else {
         this.setState({result: 'Tie game!' });
       }
@@ -87,13 +94,13 @@ var App = React.createClass({
     } else if (userChoice === 'Lizard') {
 
       if (compChoice === 'Paper') {
-        this.setState({result: 'Lizard eats paper! You win!' });
+        this.setState({result: 'Lizard eats paper! You win!', userChoice: 'Lizard', compChoice: compChoice });
       } else if (compChoice === 'Spock') {
-        this.setState({result: 'Lizard poisons Spock! You win!' });
+        this.setState({result: 'Lizard poisons Spock! You win!', userChoice: 'Lizard', compChoice: compChoice });
       } else if (compChoice === 'Rock') {
-        this.setState({result: 'Rock crushes lizard! You lose!' });
+        this.setState({result: 'Rock crushes lizard! You lose!', userChoice: 'Lizard', compChoice: compChoice });
       } else if (compChoice === 'Scissors') {
-        this.setState({result: 'Scissors decapitates lizard! You lose!' });
+        this.setState({result: 'Scissors decapitates lizard! You lose!', userChoice: 'Lizard', compChoice: compChoice });
       } else {
         this.setState({result: 'Tie game!' });
       } 
@@ -101,13 +108,13 @@ var App = React.createClass({
     } else if (userChoice === 'Spock') {
 
       if (compChoice === 'Rock') {
-        this.setState({result: 'Spock vaporizes rock! You win!' });
+        this.setState({result: 'Spock vaporizes rock! You win!', userChoice: 'Spock', compChoice: compChoice });
       } else if (compChoice === 'Scissors') {
-        this.setState({result: 'Spock crushes scissors! You win!' });
+        this.setState({result: 'Spock crushes scissors! You win!', userChoice: 'Spock', compChoice: compChoice });
       } else if (compChoice === 'Paper') {
-        this.setState({result: 'Paper disproves Spock! You lose!' });
+        this.setState({result: 'Paper disproves Spock! You lose!', userChoice: 'Spock', compChoice: compChoice });
       } else if (compChoice === 'Lizard') {
-        this.setState({result: 'Lizard poisons Spock! You lose!' });
+        this.setState({result: 'Lizard poisons Spock! You lose!', userChoice: 'Spock', compChoice: compChoice });
       } else {
         this.setState({result: 'Tie game!' });
       }
@@ -118,7 +125,7 @@ var App = React.createClass({
     return (
       <div>
         <h1>Rock, Paper, Scissors, Lizard, Spock!</h1>
-        <Results result={this.state.result} />
+        <Results gameInfo={this.state} />
         <UserSelection playGame={this.playGame} />
       </div>
     );
