@@ -14,7 +14,9 @@ module.exports = React.createClass({
         Lizard: './images/lizard.png',
         Spock: './images/spock.png'
       };
-      return state ? imgSrcs[state] : ''; 
+
+      // using spock as default image
+      return state ? imgSrcs[state] : './images/spock.png'; 
     };
 
     // this is just a hack to show/hide the text
