@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rsprice/rock-paper-scissors-lizard-spock/issues"
   },
-  "homepage": "https://github.com/rsprice/rock-paper-scissors-lizard-spock"
+  "homepage": "https://github.com/rsprice/rock-paper-scissors-lizard-spock",
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  }
 }
