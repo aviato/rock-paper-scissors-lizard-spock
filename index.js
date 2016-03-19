@@ -22,6 +22,17 @@ var App = React.createClass({
     };
   },
 
+  /*
+    playGame:
+
+    User choice is the text associated with a Choice component.
+    Pass it into the function and the application's state will be
+    updated based on userChoice v.s. computer choice.
+
+    ...TODO: This function is gigantic and needs to be refactored!
+    Some error handling would be nice as well.
+  */
+
   playGame: function (userChoice) {
 
     var choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];

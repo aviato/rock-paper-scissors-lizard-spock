@@ -1,5 +1,10 @@
 var React = require('react');
 
+
+/*
+  This component that would be really cool to add, but I didn't have the chance
+  to finish it.
+*/
 module.exports = React.createClass({
   render: function () {
     var userScore = this.props.gameInfo.scores.user;

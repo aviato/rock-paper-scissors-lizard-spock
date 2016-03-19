@@ -5,6 +5,7 @@ module.exports = React.createClass({
     var userChoice = this.props.gameInfo.userChoice;
     var compChoice = this.props.gameInfo.compChoice;
 
+    // return the image that corresponds with the current state
     var imgSelect = function (state) {
       var imgSrcs = {
         Rock: './images/rock.png',
@@ -16,6 +17,7 @@ module.exports = React.createClass({
       return state ? imgSrcs[state] : ''; 
     };
 
+    // this is just a hack to show/hide the text
     var textShow = function (state) {
       return state ? 'V.S.' : '';
     };
