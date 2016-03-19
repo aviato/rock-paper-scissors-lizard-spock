@@ -14,6 +14,7 @@ var Choice = React.createClass({
   }
 });
 
+
 var UserSelection = React.createClass({
   render: function () {
     return (
@@ -29,6 +30,7 @@ var UserSelection = React.createClass({
     );
   }
 });
+
 
 var Results = React.createClass({
   render: function () {
@@ -46,18 +48,22 @@ var Results = React.createClass({
       return state ? imgSrcs[state] : ''; 
     };
 
+    var textShow = function (state) {
+      return state ? 'V.S.' : '';
+    };
+
     return (
       <div className="row">
-        <div className="col-xs-4">
-          <img className="img-circle" src={imgSelect(userChoice)}/>
+        <div className="col-sm-4">
           <h2>{userChoice}</h2>
+          <img className="img-circle user-choice" src={imgSelect(userChoice)}/>
         </div>
-        <div className="col-xs-4">
-          <h2>V.S.</h2>
+        <div className="col-sm-4">
+          <span className="vs"><h2>{textShow(userChoice)}</h2></span>
         </div>
-        <div className="col-xs-4">
-          <img className="img-circle" src={imgSelect(compChoice)}/>
+        <div className="col-sm-4">
           <h2>{compChoice}</h2>
+          <img className="img-circle compChoice" src={imgSelect(compChoice)}/>
         </div>
         <div className="col-xs-12">
           <h2>{this.props.gameInfo.result}</h2>
@@ -67,12 +73,32 @@ var Results = React.createClass({
   }
 });
 
+
+var ScoreBoard = React.createClass({
+  render: function () {
+    var userScore = this.props.gameInfo.scores.user;
+    var compScore = this.props.gameInfo.scores.comp;
+    return (
+      <div className="row">
+        <h2>Score Board</h2>
+        <h3>User: {userScore}</h3>
+        <h3>Computer: {compScore}</h3>
+      </div>
+    )
+  }
+});
+
+
 var App = React.createClass({
   getInitialState: function () {
     return {
       result: 'Press a button to begin playing.',
       userChoice: null,
-      compChoice: null
+      compChoice: null,
+      scores: {
+        user: 0,
+        comp: 0
+      }
     };
   },
   playGame: function (userChoice) {
@@ -84,7 +110,7 @@ var App = React.createClass({
       if (compChoice === 'Scissors') {
         this.setState({result: 'Rock crushes Scissors! You win!', userChoice: 'Rock', compChoice: compChoice });
       } else if (compChoice === 'Lizard') {
-        this.setState({result: 'Rock crushes Lizard! You win!', userChoice: 'Rock', compChoice: compChoice});
+        this.setState({result: 'Rock crushes Lizard! You win!', userChoice: 'Rock', compChoice: compChoice });
       } else if (compChoice === 'Paper') {
         this.setState({result: 'Paper covers Rock! You lose!', userChoice: 'Rock', compChoice: compChoice });
       } else if (compChoice === 'Spock') {
@@ -161,5 +187,6 @@ var App = React.createClass({
     );
   }
 });
+
 
 ReactDOM.render(<App />, document.getElementsByClassName('app-container')[0]);

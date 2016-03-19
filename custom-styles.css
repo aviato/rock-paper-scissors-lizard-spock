@@ -1,2 +1,4 @@
 body {background-color: navy; color: white;}
 img {max-height: 150px; max-width: 150px;}
+.vs h2 {color: tomato; margin-top: 5%; margin-bottom: 5%;}
+button {margin: .5em;}
