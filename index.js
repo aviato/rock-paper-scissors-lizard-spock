@@ -1,95 +1,15 @@
-var React    = require('react');
-var ReactDOM = require('react-dom');
+var React         = require('react');
+var ReactDOM      = require('react-dom');
+var Choice        = require('./modules/Choice');
+var UserSelection = require('./modules/UserSelection');
+var Results       = require('./modules/Results');
+
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./custom-styles.css');
 
 
-var Choice = React.createClass({
-  render: function () {
-    var text = this.props.text;
-    var game = this.props.playGame.bind(this, text);
-    return (
-      <button className="btn btn-default" onClick={game}>{text}</button> 
-    );
-  }
-});
-
-
-var UserSelection = React.createClass({
-  render: function () {
-    return (
-      <div className="row">
-        <div className="col-xs-12">
-          <Choice playGame={this.props.playGame.bind(this)} text={'Rock'} />
-          <Choice playGame={this.props.playGame.bind(this)} text={'Paper'} />
-          <Choice playGame={this.props.playGame.bind(this)} text={'Scissors'} />
-          <Choice playGame={this.props.playGame.bind(this)} text={'Lizard'} />
-          <Choice playGame={this.props.playGame.bind(this)} text={'Spock'} />
-        </div>
-      </div>
-    );
-  }
-});
-
-
-var Results = React.createClass({
-  render: function () {
-    var userChoice = this.props.gameInfo.userChoice;
-    var compChoice = this.props.gameInfo.compChoice;
-
-    var imgSelect = function (state) {
-      var imgSrcs = {
-        Rock: './images/rock.png',
-        Paper: './images/paper.png',
-        Scissors: './images/scissors.png',
-        Lizard: './images/lizard.png',
-        Spock: './images/spock.png'
-      };
-      return state ? imgSrcs[state] : ''; 
-    };
-
-    var textShow = function (state) {
-      return state ? 'V.S.' : '';
-    };
-
-    return (
-      <div className="row">
-        <div className="col-sm-4">
-          <h2>{userChoice}</h2>
-          <img className="img-circle user-choice" src={imgSelect(userChoice)}/>
-        </div>
-        <div className="col-sm-4">
-          <span className="vs"><h2>{textShow(userChoice)}</h2></span>
-        </div>
-        <div className="col-sm-4">
-          <h2>{compChoice}</h2>
-          <img className="img-circle compChoice" src={imgSelect(compChoice)}/>
-        </div>
-        <div className="col-xs-12">
-          <h2>{this.props.gameInfo.result}</h2>
-        </div>
-      </div>
-    );
-  }
-});
-
-
-var ScoreBoard = React.createClass({
-  render: function () {
-    var userScore = this.props.gameInfo.scores.user;
-    var compScore = this.props.gameInfo.scores.comp;
-    return (
-      <div className="row">
-        <h2>Score Board</h2>
-        <h3>User: {userScore}</h3>
-        <h3>Computer: {compScore}</h3>
-      </div>
-    )
-  }
-});
-
-
 var App = React.createClass({
+
   getInitialState: function () {
     return {
       result: 'Press a button to begin playing.',
@@ -101,7 +21,9 @@ var App = React.createClass({
       }
     };
   },
+
   playGame: function (userChoice) {
+
     var choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
     var compChoice = choices[Math.floor(Math.random() * 5)];
 
@@ -177,6 +99,7 @@ var App = React.createClass({
     }
 
   },
+
   render: function () {
     return (
       <div className="container text-center">
