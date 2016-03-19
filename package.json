@@ -1,0 +1,19 @@
+{
+  "name": "rock-paper-scissors-lizard-spock",
+  "version": "0.0.0",
+  "description": "A fun game with lizards and aliens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rsprice/rock-paper-scissors-lizard-spock.git"
+  },
+  "author": "Ryan Price",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsprice/rock-paper-scissors-lizard-spock/issues"
+  },
+  "homepage": "https://github.com/rsprice/rock-paper-scissors-lizard-spock"
+}
