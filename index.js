@@ -7,7 +7,7 @@ var Choice = React.createClass({
     var text = this.props.text;
     var game = this.props.playGame.bind(this, text);
     return (
-      <button onClick={game}>{text}</button>
+      <button onClick={game}>{text}</button> 
     );
   }
 });
@@ -60,7 +60,7 @@ var App = React.createClass({
       } else if (compChoice === 'Spock') {
         this.setState({result: 'Spock vaporizes Rock! You lose!', userChoice: 'Rock', compChoice: compChoice });
       } else {
-        this.setState({result: 'Tie game!' });
+        this.setState({result: 'Tie game!', userChoice: 'Rock', compChoice: compChoice });
       }
 
     } else if (userChoice === 'Paper') {
@@ -74,7 +74,7 @@ var App = React.createClass({
       } else if (compChoice === 'Lizard') {
         this.setState({result: 'Lizard eats paper! You lose!', userChoice: 'Paper', compChoice: compChoice });
       } else {
-        this.setState({result: 'Tie game!' });
+        this.setState({result: 'Tie game!', userChoice: 'Paper', compChoice: compChoice });
       }
 
     } else if (userChoice === 'Scissors') {
@@ -88,7 +88,7 @@ var App = React.createClass({
       } else if (compChoice === 'Spock') {
         this.setState({result: 'Spock crushes scissors! You lose!', userChoice: 'Scissors', compChoice: compChoice });
       } else {
-        this.setState({result: 'Tie game!' });
+        this.setState({result: 'Tie game!', userChoice: 'Scissors', compChoice: compChoice });
       }
 
     } else if (userChoice === 'Lizard') {
@@ -102,7 +102,7 @@ var App = React.createClass({
       } else if (compChoice === 'Scissors') {
         this.setState({result: 'Scissors decapitates lizard! You lose!', userChoice: 'Lizard', compChoice: compChoice });
       } else {
-        this.setState({result: 'Tie game!' });
+        this.setState({result: 'Tie game!', userChoice: 'Lizard', compChoice: compChoice });
       } 
 
     } else if (userChoice === 'Spock') {
@@ -116,7 +116,7 @@ var App = React.createClass({
       } else if (compChoice === 'Lizard') {
         this.setState({result: 'Lizard poisons Spock! You lose!', userChoice: 'Spock', compChoice: compChoice });
       } else {
-        this.setState({result: 'Tie game!' });
+        this.setState({result: 'Tie game!', userChoice: 'Spock', compChoice: compChoice });
       }
     }
 
