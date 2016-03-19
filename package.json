@@ -18,5 +18,10 @@
   "homepage": "https://github.com/rsprice/rock-paper-scissors-lizard-spock",
   "devDependencies": {
     "webpack": "^1.12.14"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
   }
 }
