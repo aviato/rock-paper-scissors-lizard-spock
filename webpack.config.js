@@ -1,10 +1,10 @@
-let path    = require('path');
-let webpack = require('webpack');
+var path    = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: ['./index'],
+  entry: path.resolve(__dirname, 'index.js'),
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   plugins: [
@@ -14,5 +14,17 @@ module.exports = {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin()
-  ]
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?/,
+        exclude: [path.resolve(__dirname, 'node_modules')],
+        loader: 'babel',
+        query: {
+          presets: ['react']
+        }
+      }
+    ]
+  }
 };
